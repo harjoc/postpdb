@@ -11,3 +11,5 @@ and convert the raw entries like:
 into
 
 `mydll.dll!Internal::Member+0x12 [c:\work\internal.cpp:456]`
+
+Compile using Visual Studio 2010 and put dbghelp.dll, dbgeng.dll and symsrv.dll from a recent Windows Debugging Tools release in the same directory as the executable. Or grab a binary from [Releases](releases). But you wouldn't run a random binary from the internet. Would you ?
