@@ -52,9 +52,6 @@ int main(int argc, char *argv[])
 		do {
 			// <KERNEL32.dll+0x90baf>
 
-			//const char *paren = strchr(buf, '(');
-			//if (!paren) break;
-
 			const char *bracket0 = strchr(buf, '<');
 			if (!bracket0) break;
 		
@@ -64,18 +61,13 @@ int main(int argc, char *argv[])
 			const char *plus = strchr(bracket0, '+');
 			if (!plus || plus > bracket1) break;
 
-			char addrstr[32];
 			char module[128];
 			char ofsstr[32];
 
-			//_snprintf(addrstr, 32, "%.*s", bracket0-paren-1, paren+1);
 			_snprintf(module, 128, "%.*s", plus-bracket0-1, bracket0+1);
 			_snprintf(ofsstr, 32, "%.*s", bracket1-plus-1, plus+1);
 
-			DWORD64 addr = stoull(addrstr, NULL, 16);
 			DWORD64 ofs = stoull(ofsstr, NULL, 16);
-
-			//trace("%llx [%s] [%s] %llx\n", addr, module, ofsstr, ofs);
 
 			char path[128];
 			_snprintf(path, 128, "%s\\%s", INSTALLDIR, module);
@@ -105,7 +97,6 @@ int main(int argc, char *argv[])
 				break;
 			}
 			
-			//sym_buf.sym.
 			IMAGEHLP_LINE64 line = {};
 			line.SizeOfStruct = sizeof(IMAGEHLP_LINE64);
 			DWORD line_displacement;
