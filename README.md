@@ -6,9 +6,8 @@ using drmemory or another dynamorio tool, but didn't set up `_NT_SYMBOL_PATH`
 to have proper symbols, you can use this tool to postprocess the output
 and convert the raw entries like:
 
-<mydll.dll!DllMain+0x34593>
+`<mydll.dll!DllMain+0x34593>`
 
 into
 
-mydll.dll!Internal::Member+0x12 [c:\work\internal.cpp:456]
-
+`mydll.dll!Internal::Member+0x12 [c:\work\internal.cpp:456]`
