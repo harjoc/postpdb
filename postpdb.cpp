@@ -2,10 +2,6 @@
 #include <stdio.h>
 #include <DbgHelp.h>
 
-#include <string>
-
-using namespace std;
-
 #pragma warning(disable:4996)
 
 #define errx(code, ...)	do { fprintf(stderr, __VA_ARGS__); fprintf(stderr, "\n"); exit(code); } while(0)
